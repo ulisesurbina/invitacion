@@ -11,26 +11,41 @@ function App() {
     mensaje: ""
   });
   const [status, setStatus] = useState("");
+  const [waLink, setWaLink] = useState("");
 
   const update = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
-  async function submitRSVP(e) {
-    e.preventDefault();
-    if (!form.nombre.trim()) {
-      setStatus("Escribe tu nombre para confirmar.");
-      return;
-    }
+  function buildWhatsAppUrl(data) {
+  const acomp = Number(data.asistentes);
+  const text =
+    `¡Hola! Confirmo mi asistencia al cumpleaños de ${EVENT.name} 🎉\n\n` +
+    `👤 Nombre: ${data.nombre.trim()}\n` +
+    `📱 Teléfono: ${data.telefono.trim()}\n` +
+    `👥 Acompañantes: ${acomp}` +
+    (data.mensaje.trim() ? `\n💬 Mensaje: ${data.mensaje.trim()}` : "");
 
-    setStatus("Enviando confirmación…");
+  return `https://wa.me/${EVENT.whatsappNumber}?text=${encodeURIComponent(text)}`;
+}
 
-    try {
-      if (!DESIGN.googleSheetsUrl) {
-        throw new Error("Falta configurar la URL de Google Apps Script.");
-      }
+async function submitRSVP(e) {
+  e.preventDefault();
 
-      // Apps Script se publica como Web App y recibe los datos en doPost().
-      // no-cors permite enviar desde Netlify aunque Google no exponga CORS.
+  if (!form.nombre.trim()) {
+    setStatus("Escribe tu nombre para confirmar.");
+    return;
+  }
+  if (!form.telefono.trim()) {
+    setStatus("Escribe tu número de teléfono.");
+    return;
+  }
+
+  setStatus("Enviando confirmación…");
+  const url = buildWhatsAppUrl(form);
+
+  try {
+    // Google Sheets es opcional: solo se usa si pegaste la URL en config.js
+    if (DESIGN.googleSheetsUrl) {
       await fetch(DESIGN.googleSheetsUrl, {
         method: "POST",
         mode: "no-cors",
@@ -45,14 +60,54 @@ function App() {
           enviado: new Date().toISOString()
         })
       });
-
-      setStatus("¡Listo! Tu asistencia fue enviada.");
-      setForm({ nombre: "", telefono: "", asistentes: "1", mensaje: "" });
-    } catch (error) {
-      console.error(error);
-      setStatus("No se pudo enviar. Revisa la configuración de Google Sheets.");
     }
+
+    setStatus("¡Listo! Tu asistencia fue enviada.");
+    setWaLink(url);
+    window.open(url, "_blank", "noopener,noreferrer"); // abre WhatsApp
+    setForm({ nombre: "", telefono: "", asistentes: "0", mensaje: "" });
+  } catch (error) {
+    console.error(error);
+    setStatus("No se pudo enviar. Inténtalo de nuevo.");
   }
+}
+
+  // async function submitRSVP(e) {
+  //   e.preventDefault();
+  //   if (!form.nombre.trim()) {
+  //     setStatus("Escribe tu nombre para confirmar.");
+  //     return;
+  //   }
+
+  //   setStatus("Enviando confirmación…");
+
+  //   try {
+  //     if (!DESIGN.googleSheetsUrl) {
+  //       throw new Error("Falta configurar la URL de Google Apps Script.");
+  //     }
+
+  //     await fetch(DESIGN.googleSheetsUrl, {
+  //       method: "POST",
+  //       mode: "no-cors",
+  //       headers: { "Content-Type": "text/plain;charset=utf-8" },
+  //       body: JSON.stringify({
+  //         nombre: form.nombre,
+  //         telefono: form.telefono,
+  //         asistentes: Number(form.asistentes),
+  //         mensaje: form.mensaje,
+  //         evento: EVENT.name,
+  //         fechaEvento: `${EVENT.dayName} ${EVENT.day} ${EVENT.month}`,
+  //         enviado: new Date().toISOString()
+  //       })
+  //     });
+
+  //     setStatus("¡Listo! Tu asistencia fue enviada.");
+  //     setForm({ nombre: "", telefono: "", asistentes: "1", mensaje: "" });
+  //   } catch (error) {
+  //     console.error(error);
+  //     setStatus("No se pudo enviar. Revisa la configuración de Google Sheets.");
+  //   }
+  // }
 
   return (
     <main className="page">
@@ -86,12 +141,21 @@ function App() {
             <small>{EVENT.month}</small>
           </div>
 
-          <div className="location">
+          <a className="location"
+            href={EVENT.mapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Abrir ${EVENT.locationName} en Google Maps`}>
             <span className="pin">⌖</span>
             <div>
               <strong>{EVENT.locationName}</strong>
               <span>{EVENT.locationAddress}</span>
+              <em className="map-link">Ver en Google Maps →</em>
             </div>
+          </a>
+
+          <div className="ticket-note">
+            <span>✦</span> {EVENT.ticketNote} <span>✦</span>
           </div>
 
           <div className="decor-orb orb-left">♡</div>
@@ -101,7 +165,7 @@ function App() {
 
           <div className="rsvp-card">
             <h2>Confirma tu asistencia</h2>
-            <p>Ayúdanos a preparar todo para ti.</p>
+            <p>Ayúdame a preparar todo para ti.</p>
 
             <form onSubmit={submitRSVP}>
               <label>
@@ -115,16 +179,16 @@ function App() {
                 />
               </label>
 
-              {/* <label>
-                Teléfono / WhatsApp
+              <label>
+                WhatsApp
                 <input
                   name="telefono"
                   value={form.telefono}
                   onChange={update}
-                  placeholder="55 0000 0000"
+                  placeholder="55 1234 5678"
                   inputMode="tel"
                 />
-              </label> */}
+              </label>
 
               <label>
                 Número de acompañantes
@@ -148,7 +212,11 @@ function App() {
 
               <button type="submit">Confirmar asistencia</button>
               <div className={`status ${status.includes("¡Listo") ? "ok" : ""}`}>
-                {status}
+                {waLink && (
+                  <a className="wa-btn" href={waLink} target="_blank" rel="noopener noreferrer">
+                    Enviar confirmación por WhatsApp
+                  </a>
+                )}
               </div>
             </form>
           </div>

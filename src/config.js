@@ -1,11 +1,3 @@
-/*
-  ============================================================
-  EDITA AQUÍ LOS DATOS DE TU INVITACIÓN
-  ============================================================
-  No necesitas tocar main.jsx para cambiar nombre, edad, fecha,
-  dirección, colores o la conexión con Google Sheets.
-*/
-
 export const EVENT = {
   title: "Birthday",
   name: "STEPHIE",
@@ -14,19 +6,23 @@ export const EVENT = {
   dayName: "Sábado",
   day: "31",
   month: "ENE",
-  time: "04:30",
+  time: "04:30pm",
 
-  locationName: "Círculo de Oficiales",
-  locationAddress: "Frente a la Cruz, Acceso Sur · Av. Arturo Illia 4618"
+  locationName: "Mi Casa",
+  locationAddress: "Av. Rojo Gomez No. 123, Col. Centro, CDMX",
+  mapsUrl: "https://www.google.com/maps/search/?api=1&query=" +
+    encodeURIComponent("Av. Rojo Gomez 123, Col. Centro, CDMX"),
+  ticketNote: "Acceso únicamente con boleto",
+  whatsappNumber: "525512345678",
 };
 
 export const DESIGN = {
   // Colores principales
-  pink: "#e7a9bd",
-  pinkDark: "#b55f82",
-  paper: "#f9e8ef",
-  ink: "#171116",
-  silver: "#c8c8ce",
+  pink: "#a9c6f0",
+  pinkDark: "#2f5fa8",
+  paper: "#e6f0fc",
+  ink: "#0f1a2e",
+  silver: "#c8ccd6",
 
   /*
     Pega aquí la URL de tu Web App de Google Apps Script.
