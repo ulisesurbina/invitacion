@@ -211,9 +211,9 @@ async function submitRSVP(e) {
               </label>
 
               <button type="submit">Confirmar asistencia</button>
-              <div className={`status ${status.includes("¡Listo") ? "ok" : ""}`}>
+              {/* <div className={`status ${status.includes("¡Listo") ? "ok" : ""}`}>
                 {status}
-              </div>
+              </div> */}
             </form>
           </div>
         </div>
