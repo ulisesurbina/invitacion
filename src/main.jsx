@@ -212,11 +212,7 @@ async function submitRSVP(e) {
 
               <button type="submit">Confirmar asistencia</button>
               <div className={`status ${status.includes("¡Listo") ? "ok" : ""}`}>
-                {waLink && (
-                  <a className="wa-btn" href={waLink} target="_blank" rel="noopener noreferrer">
-                    Enviar confirmación por WhatsApp
-                  </a>
-                )}
+                {status}
               </div>
             </form>
           </div>
