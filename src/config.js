@@ -13,7 +13,7 @@ export const EVENT = {
   mapsUrl: "https://www.google.com/maps/search/?api=1&query=" +
     encodeURIComponent("Av. Rojo Gomez 123, Col. Centro, CDMX"),
   ticketNote: "Acceso únicamente con boleto",
-  whatsappNumber: "525512345678",
+  whatsappNumber: "525554369655",
 };
 
 export const DESIGN = {
