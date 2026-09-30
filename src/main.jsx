@@ -6,7 +6,7 @@ import { EVENT, DESIGN } from "./config";
 function App() {
   const [form, setForm] = useState({
     nombre: "",
-    telefono: "5610917960",
+    telefono: "",
     asistentes: "0",
     mensaje: ""
   });
