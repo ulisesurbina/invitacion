@@ -13,8 +13,7 @@ function buildWhatsAppMessage({ nombre, asistentes, mensaje }) {
   const lineas = [
     "\u{1F389} *CONFIRMACIÓN DE ASISTENCIA* \u{1F389}",
     linea,
-    `\u{1F451} *Cumpleaños de ${EVENT.name}* (${EVENT.age} años)`,
-    `\u{1F4C5} ${EVENT.dayName} ${EVENT.day} ${EVENT.month} · ${EVENT.time}`,
+    `\u{1F451} *Cumpleaños de ${EVENT.name}*`,
     linea,
     `\u{1F464} *Nombre:* ${nombre}`,
     `\u{1F465} *Acompañantes:* ${acomp === 0 ? "Sin acompañantes" : acomp}`,
