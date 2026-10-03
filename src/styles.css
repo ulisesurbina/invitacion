@@ -676,7 +676,7 @@ code {
 .girl {
   position: absolute;
   z-index: 3;
-  top: 56px;
+  top: 10px;
   left: 10px;
   width: clamp(110px, 27%, 200px);
   height: auto;
