@@ -676,9 +676,9 @@ code {
 .girl {
   position: absolute;
   z-index: 3;
-  top: 40px;
+  top: 10px;
   left: 10px;
-  width: clamp(110px, 27%, 200px);
+  width: clamp(110px, 24%, 200px);
   height: auto;
   max-height: 400px;
   object-fit: contain;
