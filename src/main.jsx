@@ -39,7 +39,6 @@ function App() {
     });
   };
 
-  // Quita el aviso de éxito al regresar de WhatsApp (o a los 12 s como respaldo)
   useEffect(() => {
     if (!status.startsWith("¡Listo")) return;
 
@@ -125,10 +124,8 @@ function App() {
 
         <div className="content">
           <div className="crown">♕</div>
-
-          <div className="age">{EVENT.age}</div>
-
           <p className="script-title">{EVENT.title}</p>
+          <div className="age">{EVENT.age}</div>
           <h1>{EVENT.name}</h1>
 
           <div className="date-block">
@@ -207,7 +204,7 @@ function App() {
                   name="mensaje"
                   value={form.mensaje}
                   onChange={update}
-                  placeholder="Déjanos un mensaje..."
+                  placeholder="Déjame un mensaje..."
                   rows="3"
                 />
               </label>
