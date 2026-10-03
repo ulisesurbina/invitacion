@@ -812,7 +812,7 @@ code {
     font-size: 15px;
   }
   .girl {
-    top: 50px;
+    top: 10px;
     left: 4px;
     width: clamp(92px, 26%, 118px);
     max-height: 260px;
