@@ -1,106 +1,97 @@
 import React from "react";
 
-const GOLD = "#d9b45a";
+const Grad = ({ id, stops, x2 = 1, y2 = 1 }) => (
+  <linearGradient id={id} x1="0" y1="0" x2={x2} y2={y2}>
+    {stops.map(([o, c]) => (
+      <stop key={o} offset={o} stopColor={c} />
+    ))}
+  </linearGradient>
+);
 
-export function Slipper({ className }) {
+const BLUE = [[0, "#dbe9ff"], [0.25, "#7ea2e6"], [0.6, "#2f4fa8"], [1, "#16286b"]];
+const SILVER = [[0, "#ffffff"], [0.35, "#c9d1dc"], [0.65, "#f4f7fb"], [1, "#8d99ab"]];
+
+export function Crown({ className }) {
   return (
-    <svg className={className} viewBox="0 0 64 64" aria-hidden="true">
-      <defs>
-        <linearGradient id="gSlip" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#ffffff" />
-          <stop offset=".5" stopColor="#bcd8f2" />
-          <stop offset="1" stopColor="#6fa3d9" />
-        </linearGradient>
-      </defs>
-      <path
-        d="M10 14 Q18 24 30 24 C40 30 50 32 57 36 C62 40 60 44 54 45 C42 47 28 46 18 42 L13 58 L8 58 L11 38 Z"
-        fill="url(#gSlip)" stroke="#fff" strokeWidth="1.5" strokeLinejoin="round"
-      />
-      <path d="M22 30 L36 34" stroke="#fff" strokeWidth="2" strokeLinecap="round" opacity=".85" />
-      <path d="M50 12 l2 5 5 2 -5 2 -2 5 -2 -5 -5 -2 5 -2z" fill="#f3dc9a" />
+    <svg className={className} viewBox="0 0 120 80" aria-hidden="true">
+      <defs><Grad id="gCrown" stops={BLUE} /></defs>
+      <path d="M6 72 L12 18 L40 46 L60 6 L80 46 L108 18 L114 72 Z" fill="url(#gCrown)" stroke="#e8f0ff" strokeWidth="2" strokeLinejoin="round" />
+      <rect x="6" y="62" width="108" height="12" rx="3" fill="url(#gCrown)" stroke="#e8f0ff" strokeWidth="2" />
+      {[24, 42, 60, 78, 96].map((x) => <circle key={x} cx={x} cy="68" r="2.6" fill="#fff" />)}
+      {[12, 60, 108].map((x, i) => <circle key={x} cx={x} cy={i === 1 ? 6 : 18} r="4" fill="#fff" />)}
     </svg>
   );
 }
 
-export function Clock({ className }) {
+export function Heart({ className }) {
   return (
-    <svg className={className} viewBox="0 0 64 64" aria-hidden="true">
-      <defs>
-        <linearGradient id="gClock" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#f3dc9a" />
-          <stop offset=".5" stopColor={GOLD} />
-          <stop offset="1" stopColor="#b8923a" />
-        </linearGradient>
-      </defs>
-      <circle cx="17" cy="11" r="6" fill="url(#gClock)" />
-      <circle cx="47" cy="11" r="6" fill="url(#gClock)" />
-      <circle cx="32" cy="35" r="25" fill="url(#gClock)" />
-      <circle cx="32" cy="35" r="20" fill="#fff" />
-      {[0, 90, 180, 270].map((a) => (
-        <line key={a} x1="32" y1="18" x2="32" y2="21.5" stroke="#3f78b8" strokeWidth="2"
-          strokeLinecap="round" transform={`rotate(${a} 32 35)`} />
-      ))}
-      <line x1="32" y1="35" x2="32" y2="25" stroke="#25507f" strokeWidth="3" strokeLinecap="round" />
-      <line x1="32" y1="35" x2="32" y2="21" stroke="#3f78b8" strokeWidth="2" strokeLinecap="round" />
-      <circle cx="32" cy="35" r="2.5" fill={GOLD} />
+    <svg className={className} viewBox="0 0 100 95" aria-hidden="true">
+      <defs><Grad id="gHeart" stops={BLUE} /></defs>
+      <path d="M50 90 C8 60 0 34 20 17 C35 6 48 14 50 26 C52 14 65 6 80 17 C100 34 92 60 50 90Z" fill="url(#gHeart)" stroke="#e8f0ff" strokeWidth="2" />
+      <ellipse cx="30" cy="28" rx="9" ry="5" fill="#fff" opacity=".55" transform="rotate(-35 30 28)" />
+    </svg>
+  );
+}
+
+export function Star({ className }) {
+  return (
+    <svg className={className} viewBox="0 0 100 100" aria-hidden="true">
+      <defs><Grad id="gStar" stops={SILVER} /></defs>
+      <polygon points="50,4 62,38 97,38 69,59 80,93 50,72 20,93 31,59 3,38 38,38" fill="url(#gStar)" stroke="#fff" strokeWidth="1.5" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+// Destello de 4 puntas
+export function Spark({ className }) {
+  return (
+    <svg className={className} viewBox="0 0 100 100" aria-hidden="true">
+      <defs><Grad id="gSpark" stops={SILVER} /></defs>
+      <path d="M50 0 C54 36 64 46 100 50 C64 54 54 64 50 100 C46 64 36 54 0 50 C36 46 46 36 50 0Z" fill="url(#gSpark)" />
+    </svg>
+  );
+}
+
+export function Bow({ className }) {
+  return (
+    <svg className={className} viewBox="0 0 100 70" aria-hidden="true">
+      <defs><Grad id="gBow" stops={[[0, "#f1f6ff"], [0.5, "#aebfe6"], [1, "#6f86c4"]]} /></defs>
+      <path d="M50 35 C30 0 4 4 2 22 C0 44 28 52 50 35 Z M50 35 C70 0 96 4 98 22 C100 44 72 52 50 35 Z" fill="url(#gBow)" stroke="#fff" strokeWidth="1.5" />
+      <path d="M46 40 L34 68 L48 58 Z M54 40 L66 68 L52 58 Z" fill="url(#gBow)" stroke="#fff" strokeWidth="1.2" />
+      <ellipse cx="50" cy="35" rx="8" ry="9" fill="url(#gBow)" stroke="#fff" strokeWidth="1.5" />
     </svg>
   );
 }
 
 export function Balloons({ className }) {
+  const b = [[40, 40, "#9db8ee"], [78, 32, "#5f7fd0"], [60, 78, "#c7d6f5"]];
   return (
-    <svg className={className} viewBox="0 0 64 64" aria-hidden="true">
-      <path d="M22 34 Q30 48 32 60 M42 30 Q36 46 32 60 M33 41 L32 60"
-        stroke="#9aa7b5" strokeWidth="1.2" fill="none" />
-      <ellipse cx="22" cy="20" rx="11" ry="14" fill="#8fb8e6" />
-      <ellipse cx="42" cy="16" rx="11" ry="14" fill={GOLD} />
-      <ellipse cx="33" cy="28" rx="10" ry="13" fill="#f2f6fb" stroke="#c8d0da" />
-      <ellipse cx="18" cy="14" rx="3" ry="5" fill="#fff" opacity=".6" />
-      <ellipse cx="38" cy="10" rx="3" ry="5" fill="#fff" opacity=".6" />
-    </svg>
-  );
-}
-
-export function Carriage({ className }) {
-  return (
-    <svg className={className} viewBox="0 0 96 72" aria-hidden="true">
+    <svg className={className} viewBox="0 0 110 160" aria-hidden="true">
       <defs>
-        <linearGradient id="gCar" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#ffffff" />
-          <stop offset=".45" stopColor="#bcd8f2" />
-          <stop offset="1" stopColor="#6fa3d9" />
-        </linearGradient>
+        <radialGradient id="gBal" cx="35%" cy="30%" r="75%">
+          <stop offset="0" stopColor="#fff" />
+          <stop offset=".3" stopColor="#9db8ee" />
+          <stop offset="1" stopColor="#2c459b" />
+        </radialGradient>
       </defs>
-      <path d="M14 38 C14 16 32 10 48 10 C64 10 82 16 82 38 C82 50 72 52 48 52 C24 52 14 50 14 38 Z"
-        fill="url(#gCar)" stroke="#fff" strokeWidth="1.5" />
-      <path d="M30 14 C34 36 34 46 32 52 M48 10 L48 52 M66 14 C62 36 62 46 64 52"
-        stroke={GOLD} strokeWidth="1.8" fill="none" />
-      <ellipse cx="48" cy="30" rx="9" ry="8" fill="#fff" stroke={GOLD} strokeWidth="2" />
-      <path d="M42 8 l3 -6 3 4 3 -4 3 6 z" fill={GOLD} />
-      {[26, 70].map((cx) => (
-        <g key={cx} stroke={GOLD} strokeWidth="2.5" fill="#fff">
-          <circle cx={cx} cy="58" r="11" />
-          {[0, 60, 120].map((a) => (
-            <line key={a} x1={cx} y1="49" x2={cx} y2="67" strokeWidth="1.5"
-              transform={`rotate(${a} ${cx} 58)`} />
-          ))}
+      <path d="M40 78 Q50 120 58 158 M78 70 Q64 120 58 158 M60 114 L58 158" stroke="#9aa7b5" strokeWidth="1.2" fill="none" />
+      {b.map(([cx, cy, c]) => (
+        <g key={cx}>
+          <ellipse cx={cx} cy={cy} rx="27" ry="34" fill="url(#gBal)" opacity=".95" />
+          <ellipse cx={cx - 9} cy={cy - 14} rx="5" ry="9" fill="#fff" opacity=".6" />
         </g>
       ))}
     </svg>
   );
 }
 
-export function Castle({ className }) {
+// Bola disco hecha con CSS (los espejos brillan y giran)
+export function DiscoBall({ className }) {
   return (
-    <svg className={className} viewBox="0 0 600 180" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
-      <g fill="currentColor">
-        <rect x="0" y="130" width="600" height="50" />
-        <rect x="40" y="80" width="50" height="100" /><polygon points="34,80 65,30 96,80" />
-        <rect x="150" y="50" width="60" height="130" /><polygon points="142,50 180,0 218,50" />
-        <rect x="260" y="70" width="80" height="110" /><polygon points="252,70 300,10 348,70" />
-        <rect x="390" y="50" width="60" height="130" /><polygon points="382,50 420,0 458,50" />
-        <rect x="510" y="80" width="50" height="100" /><polygon points="504,80 535,30 566,80" />
-      </g>
-    </svg>
+    <div className={`disco ${className || ""}`} aria-hidden="true">
+      <div className="disco-tiles" />
+      <div className="disco-shine" />
+      <span className="disco-glint">✦</span>
+    </div>
   );
 }
