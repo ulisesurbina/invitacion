@@ -163,7 +163,7 @@ textarea {
 /* Foto */
 .girl {
   left: 8%;
-  top: 2.2%;
+  top: 0%;
   width: 36%;
   height: auto;
   max-height: 28%;
@@ -180,7 +180,7 @@ textarea {
 
 /* Banda MI CUMPLE */
 .sash {
-  right: -10%;
+  right: -12%;
   top: 4%;
   width: 54%;
   padding: 2.2cqw 0;
@@ -264,8 +264,8 @@ textarea {
 }
 .heart {
   left: 24%;
-  top: 30%;
-  width: 15%;
+  top: 27%;
+  width: 18%;
   z-index: 3;
   animation: heartbeat 2s ease-in-out infinite;
   filter: drop-shadow(0 8px 12px rgba(22, 40, 107, 0.45));
@@ -363,7 +363,7 @@ h1 {
 }
 .location {
   left: 21%;
-  top: 68%;
+  top: 70%;
   width: 60%;
   display: flex;
   gap: 2cqw;
@@ -401,7 +401,7 @@ h1 {
 /* Boleto */
 .ticket-notice {
   right: 25%;
-  top: 82%;
+  top: 84%;
   width: 49%;
   text-align: center;
   z-index: 5;
@@ -412,7 +412,7 @@ h1 {
   font-weight: 800;
   font-size: 5.8cqw;
   line-height: 1.12;
-  background: linear-gradient(100deg, #16286b, #2f4fa8, #3d41bf, #16286b);
+  background: linear-gradient(100deg, #16286b, #2f4fa8, #1e3e79, #16286b);
   background-size: 250% 100%;
   -webkit-background-clip: text;
   background-clip: text;
@@ -520,14 +520,14 @@ h1 {
 }
 .big-ball {
   left: 3%;
-  top: 95%;
-  width: 47%;
+  top: 80%;
+  width: 25%;
   z-index: 2;
   animation: ballSway 6s ease-in-out infinite;
 }
 .mini-ball {
   left: 79%;
-  top: 42%;
+  top: 44%;
   width: 22%;
   z-index: 2;
   animation: ballSway 5s -2s ease-in-out infinite;
@@ -538,16 +538,16 @@ h1 {
   filter: grayscale(0.85) brightness(1.15);
 }
 .bow {
-  left: 76%;
-  top: 38.5%;
+  left: 79%;
+  top: 37%;
   width: 21%;
   z-index: 3;
   animation: bowWiggle 3.5s ease-in-out infinite;
   filter: drop-shadow(0 4px 6px rgba(22, 40, 107, 0.35));
 }
 .balloons {
-  right: 0%;
-  top: 77%;
+  right: -1%;
+  top: 80%;
   width: 31%;
   animation: sway 6s ease-in-out infinite;
   transform-origin: 50% 100%;
@@ -828,5 +828,210 @@ button::after {
   *::before,
   *::after {
     animation: none !important;
+  }
+}
+
+/* ===================== Cenicienta ===================== */
+.deco {
+  filter: drop-shadow(0 6px 8px rgba(22, 40, 107, 0.35));
+}
+.clock-left {
+  left: 5%;
+  top: 58.5%;
+  width: 12%;
+  transform-origin: 50% 90%;
+  animation: clockRing 5s ease-in-out infinite;
+  z-index: 3;
+}
+.slipper-right {
+  left: 82%;
+  top: 57.5%;
+  width: 14%;
+  animation: slipperHop 3.6s ease-in-out infinite;
+  z-index: 3;
+}
+.hand-m,
+.hand-h {
+  transform-origin: 32px 35px;
+  animation: spin 6s linear infinite;
+}
+.hand-h {
+  animation-duration: 72s;
+}
+.tw {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: twinkle 2.4s ease-in-out infinite;
+}
+.wheel {
+  animation: spin 1.6s linear infinite;
+}
+.win {
+  animation: winGlow 3s ease-in-out infinite;
+}
+
+.fairy-strip {
+  position: relative;
+  z-index: 1;
+  height: 24cqw;
+  height: clamp(110px, 24vw, 160px);
+  margin-top: -3%;
+  overflow: hidden;
+}
+.strip-castle {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 86%;
+  transform: translateX(-50%);
+  opacity: 0.55;
+}
+.strip-road {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 14%;
+  background: linear-gradient(90deg, #7e8da3, #fff, #b3bfce, #fff, #7e8da3);
+  background-size: 200% 100%;
+  animation: glint 6s linear infinite;
+}
+.strip-carriage {
+  position: absolute;
+  bottom: 8%;
+  width: clamp(62px, 15%, 100px);
+  animation: carriageRide 12s linear infinite;
+  z-index: 2;
+}
+.dust {
+  position: absolute;
+  bottom: 30%;
+  color: #fff;
+  text-shadow:
+    0 0 10px #fff,
+    0 0 18px #8fb0ff;
+  animation: dustTrail 12s linear infinite;
+  z-index: 1;
+}
+.d2 {
+  animation-delay: -0.5s;
+  bottom: 40%;
+}
+.d3 {
+  animation-delay: -1s;
+  bottom: 24%;
+}
+.strip-wand {
+  position: absolute;
+  left: 5%;
+  bottom: 12%;
+  width: clamp(34px, 9%, 56px);
+  animation: wandWave 3s ease-in-out infinite;
+  transform-origin: 20% 90%;
+  z-index: 2;
+}
+.strip-slipper {
+  position: absolute;
+  right: 6%;
+  bottom: 14%;
+  width: clamp(34px, 9%, 54px);
+  animation: slipperHop 3.6s ease-in-out infinite;
+  z-index: 2;
+}
+.strip-clock {
+  position: absolute;
+  right: 22%;
+  bottom: 36%;
+  width: clamp(28px, 7%, 44px);
+  animation: clockRing 5s ease-in-out infinite;
+  transform-origin: 50% 90%;
+  z-index: 2;
+}
+.bottom-castle {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  z-index: 0;
+  opacity: 0.22;
+  pointer-events: none;
+}
+
+@keyframes carriageRide {
+  from {
+    left: -22%;
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -8px;
+  }
+  to {
+    left: 112%;
+    translate: 0 0;
+  }
+}
+@keyframes dustTrail {
+  from {
+    left: -30%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  to {
+    left: 100%;
+    opacity: 0;
+  }
+}
+@keyframes slipperHop {
+  0%,
+  100% {
+    translate: 0 0;
+    rotate: -6deg;
+  }
+  50% {
+    translate: 0 -10px;
+    rotate: 6deg;
+  }
+}
+@keyframes wandWave {
+  0%,
+  100% {
+    rotate: -12deg;
+  }
+  50% {
+    rotate: 14deg;
+  }
+}
+@keyframes clockRing {
+  0%,
+  60%,
+  100% {
+    rotate: 0deg;
+  }
+  65% {
+    rotate: -9deg;
+  }
+  70% {
+    rotate: 9deg;
+  }
+  75% {
+    rotate: -6deg;
+  }
+  80% {
+    rotate: 6deg;
+  }
+  85% {
+    rotate: 0deg;
+  }
+}
+@keyframes winGlow {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
   }
 }

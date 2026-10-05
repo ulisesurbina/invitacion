@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { createRoot } from "react-dom/client";
 import "./styles.css";
 import { EVENT, DESIGN } from "./config";
-import { Crown, Heart, Star, Spark, Bow, Balloons, DiscoBall } from "./art";
+import { Crown, Heart, Star, Spark, Bow, Balloons, DiscoBall, Slipper, Clock, Carriage, Castle, Wand } from "./art";
 
 const EMPTY_FORM = { nombre: "", asistentes: "0", mensaje: "" };
 
@@ -149,10 +149,24 @@ function App() {
             <strong>ACCESO SOLO CON BOLETO</strong>
           </div>
 
+          <Clock className="a deco clock-left" />
+          <Slipper className="a deco slipper-right" />
+
           <div className="a mini-ball"><DiscoBall /></div>
           <Bow className="a bow" />
           <DiscoBall className="a big-ball" />
           <Balloons className="a balloons" />
+        </div>
+
+        {/* Franja de Cenicienta */}
+        <div className="fairy-strip" aria-hidden="true">
+          <Castle className="strip-castle" />
+          <div className="strip-road" />
+          <Carriage className="deco strip-carriage" />
+          <span className="dust d1">✦</span><span className="dust d2">✧</span><span className="dust d3">✦</span>
+          {/* <Wand className="deco strip-wand" /> */}
+          {/* <Slipper className="deco strip-slipper" /> */}
+          {/* <Clock className="deco strip-clock" /> */}
         </div>
 
         <div className="rsvp-wrap">
@@ -181,6 +195,7 @@ function App() {
             </form>
           </div>
         </div>
+        <Castle className="bottom-castle" />
       </section>
     </main>
   );
