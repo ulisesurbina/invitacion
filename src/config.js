@@ -1,6 +1,6 @@
 export const EVENT = {
   title: "Cumpleaños",
-  name: "Danna Ximena",
+  name: "Xime",
   age: "18",
   dayName: "Sábado",
   day: "07",
