@@ -14,11 +14,11 @@ export const EVENT = {
 };
 
 export const DESIGN = {
-  paper: "#e8f1fb",
-  blueDark: "#3f78b8",
-  blueDeep: "#25507f",
+  paper: "#d9eefc",
+  blueDark: "#326fca",
+  blueDeep: "#3c4468",
   ink: "#111820",
   silver: "#c8d0da",
-  gold: "#d9b45a",
-  goldLight: "#f3dc9a",
+  gold: "#c8d0da",
+  goldLight: "#e3f2ff",
 };

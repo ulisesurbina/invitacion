@@ -206,29 +206,26 @@ textarea {
 
 /* Estrellas y destellos */
 .star-blue {
-  left: 7%;
-  top: 24%;
+  left: 3%;
+  top: 124%;
   width: 17%;
   animation: twinkle 3s ease-in-out infinite;
   filter: hue-rotate(190deg) saturate(2) drop-shadow(0 0 8px #fff);
 }
 .star-silver {
-  right: 1%;
-  top: 26%;
-  width: 17%;
   animation: twinkle 3.6s -1s ease-in-out infinite;
   filter: drop-shadow(0 0 10px #fff);
 }
 .star-small {
   left: 43%;
   top: 4%;
-  width: 8%;
+  width: 13%;
   animation: twinkle 2.8s -0.5s ease-in-out infinite;
   filter: hue-rotate(190deg) saturate(2);
 }
 .spark-burst {
-  left: 2%;
-  top: 43%;
+  left: -5%;
+  top: 137%;
   width: 24%;
   animation:
     spin 14s linear infinite,
@@ -239,15 +236,15 @@ textarea {
   transform: scale(0.7) rotate(45deg);
 }
 .spark-bottom {
-  left: 52%;
-  top: 87%;
+  left: 84%;
+  top: 37%;
   width: 15%;
   animation: twinkle 3s ease-in-out infinite;
   filter: drop-shadow(0 0 10px #fff);
 }
 .spark-bottom.b2 {
-  left: 49%;
-  top: 93%;
+  left: 81%;
+  top: 45%;
   width: 6%;
   animation-delay: -1.2s;
 }
@@ -263,8 +260,8 @@ textarea {
   filter: drop-shadow(0 6px 10px rgba(22, 40, 107, 0.5));
 }
 .heart {
-  left: 24%;
-  top: 27%;
+  left: 3%;
+  top: 32%;
   width: 18%;
   z-index: 3;
   animation: heartbeat 2s ease-in-out infinite;
@@ -527,7 +524,7 @@ h1 {
 }
 .mini-ball {
   left: 79%;
-  top: 44%;
+  top: 146%;
   width: 22%;
   z-index: 2;
   animation: ballSway 5s -2s ease-in-out infinite;
@@ -538,16 +535,16 @@ h1 {
   filter: grayscale(0.85) brightness(1.15);
 }
 .bow {
-  left: 79%;
-  top: 37%;
+  left: 76%;
+  top: 83%;
   width: 21%;
   z-index: 3;
   animation: bowWiggle 3.5s ease-in-out infinite;
   filter: drop-shadow(0 4px 6px rgba(22, 40, 107, 0.35));
 }
 .balloons {
-  right: -1%;
-  top: 80%;
+  right: -10%;
+  top: 112%;
   width: 31%;
   animation: sway 6s ease-in-out infinite;
   transform-origin: 50% 100%;
@@ -1034,4 +1031,236 @@ button::after {
   50% {
     opacity: 1;
   }
+}
+
+/* =====================================================================
+   PALETA CENICIENTA + IMÁGENES  (pega este bloque AL FINAL de styles.css)
+   #38b6ff · #326fca · plateado · #7caad6 · #3c4468
+   ===================================================================== */
+:root {
+  --b1: #e3f2ff;
+  --b2: #7caad6;
+  --b3: #326fca;
+  --b4: #3c4468;
+  --cyan: #38b6ff;
+}
+body {
+  background: #0e1223;
+}
+
+.invitation {
+  background:
+    radial-gradient(
+      circle at 50% 30%,
+      rgba(255, 255, 255, 0.6),
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 20% 80%,
+      rgba(56, 182, 255, 0.28),
+      transparent 40%
+    ),
+    linear-gradient(170deg, #d9eefc 0%, #b4d3ec 45%, #8db6dc 100%);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.45),
+    0 28px 80px rgba(60, 68, 104, 0.6),
+    0 0 60px rgba(56, 182, 255, 0.4);
+}
+.sash {
+  background: linear-gradient(
+    100deg,
+    #7caad6,
+    #eef7ff 40%,
+    #a9cdea 60%,
+    #326fca
+  );
+  background-size: 250% 100%;
+  color: #3c4468;
+  box-shadow: 0 6px 14px rgba(60, 68, 104, 0.35);
+}
+.crown {
+  filter: drop-shadow(0 6px 10px rgba(60, 68, 104, 0.5))
+    drop-shadow(0 0 10px rgba(56, 182, 255, 0.6));
+}
+.age {
+  background: linear-gradient(
+    115deg,
+    #3c4468 0%,
+    #326fca 30%,
+    #e3f2ff 46%,
+    #38b6ff 54%,
+    #326fca 72%,
+    #3c4468 100%
+  );
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-stroke: 0.5cqw rgba(227, 242, 255, 0.95);
+  filter: drop-shadow(0 1.2cqw 1.5cqw rgba(60, 68, 104, 0.55))
+    drop-shadow(0 0 3cqw rgba(56, 182, 255, 0.75));
+}
+.ticket-notice strong {
+  background: linear-gradient(100deg, #3c4468, #326fca, #38b6ff, #3c4468);
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+.maps-link {
+  color: #326fca;
+}
+.date-block small {
+  background: #bcd8ee;
+}
+.sparkle {
+  text-shadow:
+    0 0 8px #fff,
+    0 0 16px #38b6ff;
+}
+.rsvp-card {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(214, 233, 250, 0.8))
+      padding-box,
+    conic-gradient(
+        from var(--ang, 0deg),
+        #c8d0da,
+        #fff,
+        #38b6ff,
+        #7caad6,
+        #326fca,
+        #fff,
+        #c8d0da
+      )
+      border-box;
+  box-shadow:
+    0 14px 40px rgba(50, 111, 202, 0.25),
+    0 0 30px rgba(56, 182, 255, 0.35);
+}
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #326fca;
+  box-shadow: 0 0 0 3px rgba(56, 182, 255, 0.25);
+}
+button {
+  background: linear-gradient(135deg, #38b6ff, #326fca 55%, #3c4468);
+  box-shadow:
+    0 10px 22px rgba(50, 111, 202, 0.4),
+    0 0 18px rgba(56, 182, 255, 0.55);
+}
+.strip-road {
+  background: linear-gradient(90deg, #7caad6, #fff, #c8d0da, #fff, #7caad6);
+  background-size: 200% 100%;
+}
+
+/* ---------------- Imágenes de /public ---------------- */
+.hero img.a,
+.mini-ball img {
+  display: block;
+  height: auto;
+  max-width: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.mini-ball img {
+  width: 100%;
+}
+.mini-ball .disco {
+  filter: none;
+}
+
+/* Estrellas */
+.star-blue {
+  filter: drop-shadow(0 0 10px rgba(56, 182, 255, 0.9))
+    drop-shadow(0 4px 6px rgba(60, 68, 104, 0.3));
+}
+.star-small {
+  filter: drop-shadow(0 0 8px rgba(56, 182, 255, 0.9));
+}
+.star-silver {
+  right: 53%;
+  top: 27%;
+  width: 20%;
+  filter: drop-shadow(0 0 10px #fff)
+    drop-shadow(0 6px 8px rgba(60, 68, 104, 0.35));
+  animation:
+    floatY 4.5s ease-in-out infinite,
+    twinkle 3.6s -1s ease-in-out infinite;
+}
+
+/* Destellos plateados */
+.spark-burst,
+.spark-bottom {
+  filter: drop-shadow(0 0 8px #fff)
+    drop-shadow(0 0 14px rgba(56, 182, 255, 0.8));
+}
+
+/* "Corazón" (flor azul): late y gira suave */
+.heart {
+  filter: drop-shadow(0 8px 12px rgba(60, 68, 104, 0.45))
+    drop-shadow(0 0 12px rgba(56, 182, 255, 0.55));
+  animation:
+    heartbeat 2s ease-in-out infinite,
+    spin 28s linear infinite;
+}
+
+/* Moño y bolas disco */
+.bow {
+  filter: drop-shadow(0 4px 6px rgba(60, 68, 104, 0.4))
+    drop-shadow(0 0 10px rgba(56, 182, 255, 0.6));
+}
+.big-ball,
+.mini-ball img {
+  filter: drop-shadow(0 8px 10px rgba(60, 68, 104, 0.45))
+    drop-shadow(0 0 16px rgba(56, 182, 255, 0.6));
+  animation-name: ballSway, ballGlow;
+  animation-duration: 6s, 2.4s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+.mini-ball img {
+  animation: ballGlow 2.4s -1s ease-in-out infinite;
+}
+@keyframes ballGlow {
+  0%,
+  100% {
+    filter: drop-shadow(0 8px 10px rgba(60, 68, 104, 0.45))
+      drop-shadow(0 0 8px rgba(56, 182, 255, 0.4)) brightness(1);
+  }
+  50% {
+    filter: drop-shadow(0 8px 10px rgba(60, 68, 104, 0.45))
+      drop-shadow(0 0 22px rgba(56, 182, 255, 0.95)) brightness(1.18);
+  }
+}
+
+/* Globos */
+.balloons {
+  filter: drop-shadow(0 8px 10px rgba(60, 68, 104, 0.4))
+    drop-shadow(0 0 12px rgba(56, 182, 255, 0.4));
+}
+
+/* Hada madrina (en lugar del reloj) y paloma (en lugar de la zapatilla) */
+.clock-left {
+  width: 15%;
+  left: 3%;
+  top: 57%;
+  transform-origin: 50% 90%;
+  animation:
+    ballSway 4.5s ease-in-out infinite,
+    wandWave 6s ease-in-out infinite;
+  filter: drop-shadow(0 6px 8px rgba(60, 68, 104, 0.4))
+    drop-shadow(0 0 12px rgba(56, 182, 255, 0.6));
+}
+.slipper-right {
+  width: 15%;
+  left: 81%;
+  animation: slipperHop 3.6s ease-in-out infinite;
+  filter: drop-shadow(0 6px 8px rgba(60, 68, 104, 0.4))
+    drop-shadow(0 0 10px rgba(56, 182, 255, 0.6));
+}
+
+/* Carroza de la franja */
+.strip-carriage {
+  filter: drop-shadow(0 2px 0 rgba(60, 68, 104, 0.85))
+    drop-shadow(0 0 8px rgba(56, 182, 255, 0.95));
 }
