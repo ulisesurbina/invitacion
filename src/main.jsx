@@ -118,7 +118,8 @@ function App() {
 
           <Crown className="a crown" />
           <Heart className="a heart" />
-          <div className="age" aria-label={`${EVENT.age} años`}>{EVENT.age}</div>
+          {/* <div className="age" aria-label={`${EVENT.age} años`}>{EVENT.age}</div> */}
+          <img className="age-img" src="/18.png" alt={`${EVENT.age} años`} draggable="false" />
 
           <p className="script-title">{EVENT.title}</p>
           <h1>{EVENT.name}</h1>
